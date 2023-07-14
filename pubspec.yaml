@@ -1,0 +1,33 @@
+name: crypto_polygon
+description: A new Flutter project.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+dependencies:
+  syncfusion_flutter_charts: ^20.1.50
+  intl: ^0.18.1
+  stream_transform: ^2.1.0
+  dio: ^5.1.1
+  flutter_svg: ^1.0.3
+  flutter_bloc: ^8.1.2
+  bloc_concurrency: ^0.2.1
+  provider: ^6.0.5
+  bloc: ^8.1.1
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+flutter:
+  fonts:
+    - family: SfPro
+      fonts:
+        - asset: fonts/SF-Pro-Display-Regular.otf
+  assets:
+    - assets/images/bitmap/
+    - assets/images/svg/
+  uses-material-design: true
