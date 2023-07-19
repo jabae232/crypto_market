@@ -1,6 +1,5 @@
 part of 'search_bloc.dart';
 
-@immutable
 abstract class SearchState {}
 
 class SearchInitial extends SearchState {}
@@ -11,4 +10,9 @@ class SearchLoadedState extends SearchState {
     required this.results
 });
 }
-class SearchErrorState extends SearchState {}
+class SearchErrorState extends SearchState {
+  final String message;
+  SearchErrorState({
+    required this.message
+});
+}

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
 import 'package:crypto_polygon/src/features/crypto_list_screen/data/dto/error_dto.dart';
 import 'package:dio/dio.dart';
@@ -14,7 +12,7 @@ class CryptoListBloc extends Bloc<CryptoListEvent, CryptoListState> {
   CryptoListBloc({required this.repo}) : super(CryptoListInitial()) {
     on<GetCryptosEvent>(_onGetAccount);
   }
-  _onGetAccount(GetCryptosEvent event, Emitter<CryptoListState> emitter) async {
+  _onGetAccount(GetCryptosEvent event, Emitter<CryptoListState> emit) async {
     emit(CryptoListLoadingState());
     try {
       final cryptosUpToDate = await repo.fetch(event.upToDate);
@@ -27,7 +25,6 @@ class CryptoListBloc extends Bloc<CryptoListEvent, CryptoListState> {
         final error = errorDtoFromJson(e.response.toString());
         emit(CryptoListErrorState(message: error.error.toString()));
       }
-      print(e);
     }
   }
 }

@@ -64,11 +64,11 @@ class CryptoViewModel extends ChangeNotifier {
       }
       if (currentSortType == SortTypes.sortPercentUp) {
         sortedList.addAll(cryptosUpToDate!.results);
-        sortedList.sort((a, b) => b.differ!.compareTo(a.differ!));
+        sortedList.sort((a, b) => (b.differ ?? 0).compareTo(a.differ ?? 0));
       }
       if (currentSortType == SortTypes.sortPercentDown) {
         sortedList.addAll(cryptosUpToDate!.results);
-        sortedList.sort((a, b) => a.differ!.compareTo(b.differ!));
+        sortedList.sort((a, b) => (a.differ ?? 0).compareTo(b.differ ?? 0));
       }
     }
   }

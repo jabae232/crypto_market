@@ -1,3 +1,4 @@
+import 'package:crypto_polygon/constants/app_constants.dart';
 import 'package:crypto_polygon/src/features/crypto_detailed_screen/data/bloc/crypto_detailed_bloc.dart';
 import 'package:crypto_polygon/src/features/crypto_detailed_screen/data/repo/repo.dart';
 import 'package:crypto_polygon/src/features/crypto_list_screen/data/bloc/crypto_list_bloc.dart';
@@ -20,7 +21,11 @@ class BlocsProvider extends StatelessWidget {
         BlocProvider(
           create: (context) => CryptoListBloc(
             repo: RepositoryProvider.of<RepoCryptoList>(context),
-          ),
+          )..add(
+              GetCryptosEvent(
+                  dateBefore: AppConstants.dateBefore,
+                  upToDate: AppConstants.upToDate),
+            ),
         ),
         BlocProvider(
           create: (context) => SearchBloc(

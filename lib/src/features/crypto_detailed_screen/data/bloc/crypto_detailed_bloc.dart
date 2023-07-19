@@ -13,14 +13,14 @@ class CryptoDetailedBloc
     on<GetDetailsEvent>(_onGetDetails);
   }
   _onGetDetails(
-      GetDetailsEvent event, Emitter<CryptoDetailedState> emitter) async {
+      GetDetailsEvent event, Emitter<CryptoDetailedState> emit) async {
     emit(CryptoDetailedLoadingState());
     try {
       final results = await repo.fetch(
           event.dateFrom, event.dateTo, event.timespan, event.ticker);
       emit(CryptoDetailedLoadedState(cryptos: results));
     } catch (e) {
-      if (e is DioException) { // обработка кейса ошибки с бэка
+      if (e is DioException) {
         final error = errorDtoFromJson(e.response.toString());
         emit(CryptoDetailedErrorState(error: error.error.toString()));
       }

@@ -3,19 +3,15 @@ import 'package:crypto_polygon/src/features/dependencies_provider/dependency_pro
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(DependenciesProvider(builder: (BuildContext context) {
-    return const MyApp();
-  }));
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: CryptoScreen(),
-    );
-  }
+  runApp(
+    DependenciesProvider(
+      builder: (BuildContext context) {
+        return const MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          home: CryptoScreen(),
+        );
+      },
+    ),
+  );
 }
